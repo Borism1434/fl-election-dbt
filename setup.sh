@@ -22,4 +22,3 @@ echo "Verifying DBT installation..."
 dbt --version
 
 echo "Setup complete! Virtual environment 'dbt_venv' is ready."
-echo "To activate the environment, run: source dbt_venv/bin/activate"
