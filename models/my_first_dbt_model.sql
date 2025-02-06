@@ -12,7 +12,7 @@
 with test as (
 
     select voter_id, county
-    from public."2016_election_detail"
+    from "voterfile"."2016_election_detail"
     limit 1000
 
 )

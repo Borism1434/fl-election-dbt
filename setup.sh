@@ -21,4 +21,7 @@ pip install dbt-core dbt-postgres
 echo "Verifying DBT installation..."
 dbt --version
 
+# Step 4: Provide instruction for the user to manually activate the environment if not already done
 echo "Setup complete! Virtual environment 'dbt_venv' is ready."
+echo "To activate your virtual environment, please run:"
+echo "source dbt_venv/bin/activate"

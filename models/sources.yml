@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: voter_file_source  # Logical name for your data source
+    database: fl_election  # Replace with your actual database name
+    schema: voterfile  # Replace if your tables are in a different schema
+
+    tables:
+      - name: 2016_election_detail
+      - name: 2018_election_detail
+      - name: 2020_election_detail
+      - name: 2022_election_detail
+      - name: 2024_election_detail
+      - name: 2016_election_history
+      - name: 2018_election_history
+      - name: 2020_election_history
+      - name: 2022_election_history
+      - name: 2024_election_history
