@@ -3,19 +3,19 @@
  
 with voter_details as (
     select voter_id, reg_date, county, party, 2016 as election_year 
-    from {{ source('voter_file_source', '2016_election_detail') }}
+    from {{ source('voterfile', 'election_detail_2016') }}
     union all
     select voter_id, reg_date, county, party, 2018 as election_year 
-    from {{ source('voter_file_source', '2018_election_detail') }}
+    from {{ source('voterfile', 'election_detail_2018') }}
     union all
     select voter_id, reg_date, county, party, 2020 as election_year 
-    from {{ source('voter_file_source', '2020_election_detail') }}
+    from {{ source('voterfile', 'election_detail_2020') }}
     union all
     select voter_id, reg_date, county, party, 2022 as election_year 
-    from {{ source('voter_file_source', '2022_election_detail') }}
+    from {{ source('voterfile', 'election_detail_2022') }}
     union all
     select voter_id, reg_date, county, party, 2024 as election_year 
-    from {{ source('voter_file_source', '2024_election_detail') }}
+    from {{ source('voterfile', 'election_detail_2024') }}
 ), 
 
 voter_history as (
@@ -23,7 +23,7 @@ voter_history as (
         voter_id, 
         COALESCE(NULLIF(vote_history_code, ''), 'NV') as vote_history_code,
         2016 as election_year
-    from {{ source('voter_file_source', '2016_election_history') }}
+    from {{ source('voterfile', 'election_history_2016') }}
 
     union all
 
@@ -31,7 +31,7 @@ voter_history as (
         voter_id, 
         COALESCE(NULLIF(vote_history_code, ''), 'NV') as vote_history_code,
         2018 as election_year
-    from {{ source('voter_file_source', '2018_election_history') }}
+    from {{ source('voterfile', 'election_history_2018') }}
 
     union all
 
@@ -39,7 +39,7 @@ voter_history as (
         voter_id, 
         COALESCE(NULLIF(vote_history_code, ''), 'NV') as vote_history_code,
         2020 as election_year
-    from {{ source('voter_file_source', '2020_election_history') }}
+    from {{ source('voterfile', 'election_history_2020') }}
 
     union all
 
@@ -47,7 +47,7 @@ voter_history as (
         voter_id, 
         COALESCE(NULLIF(vote_history_code, ''), 'NV') as vote_history_code,
         2022 as election_year
-    from {{ source('voter_file_source', '2022_election_history') }}
+    from {{ source('voterfile', 'election_history_2022') }}
 
     union all
 
@@ -55,7 +55,7 @@ voter_history as (
         voter_id, 
         COALESCE(NULLIF(vote_history_code, ''), 'NV') as vote_history_code,
         2024 as election_year
-    from {{ source('voter_file_source', '2024_election_history') }}
+    from {{ source('voterfile', 'election_history_2024') }}
 ),
 
 voter_continuity as (
