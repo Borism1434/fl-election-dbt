@@ -80,17 +80,17 @@ voter_continuity as (
         max(vh.election_year) as last_year,
 
         -- Aggregate party and county information per voter
-        max(case when vh.election_year = 2016 and vh.election_code = '10282' and extract(year from vh.election_date) = 2016 then party end) as party_2016,
-        max(case when vh.election_year = 2018 and vh.election_code = '10481' and extract(year from vh.election_date) = 2018 then party end) as party_2018,
-        max(case when vh.election_year = 2020 and vh.election_code = '10866' and extract(year from vh.election_date) = 2020 then party end) as party_2020,
-        max(case when vh.election_year = 2022 and vh.election_code = '26906' and extract(year from vh.election_date) = 2022 then party end) as party_2022,
-        max(case when vh.election_year = 2024 and vh.election_code = 'GEN' and extract(year from vh.election_date) = 2024 then party end) as party_2024,
+        max(case when vh.election_year = 2016 and vh.election_code = '10282' and extract(year from vh.election_date) = 2016 then vd.party end) as party_2016,
+        max(case when vh.election_year = 2018 and vh.election_code = '10481' and extract(year from vh.election_date) = 2018 then vd.party end) as party_2018,
+        max(case when vh.election_year = 2020 and vh.election_code = '10866' and extract(year from vh.election_date) = 2020 then vd.party end) as party_2020,
+        max(case when vh.election_year = 2022 and vh.election_code = '26906' and extract(year from vh.election_date) = 2022 then vd.party end) as party_2022,
+        max(case when vh.election_year = 2024 and vh.election_code = 'GEN' and extract(year from vh.election_date) = 2024 then vd.party end) as party_2024,
 
-        max(case when vh.election_year = 2016 and vh.election_code = '10282' and extract(year from vh.election_date) = 2016  then county end) as county_2016,
-        max(case when vh.election_year = 2018 and vh.election_code = '10481' and extract(year from vh.election_date) = 2018  then county end) as county_2018,
-        max(case when vh.election_year = 2020 and vh.election_code = '10866' and extract(year from vh.election_date) = 2020  then county end) as county_2020,
-        max(case when vh.election_year = 2022 and vh.election_code = '26906' and extract(year from vh.election_date) = 2022  then county end) as county_2022,
-        max(case when vh.election_year = 2024 and vh.election_code = 'GEN' and extract(year from vh.election_date) = 2024  then county end) as county_2024,
+        max(case when vh.election_year = 2016 and vh.election_code = '10282' and extract(year from vh.election_date) = 2016  then vd.county end) as county_2016,
+        max(case when vh.election_year = 2018 and vh.election_code = '10481' and extract(year from vh.election_date) = 2018  then vd.county end) as county_2018,
+        max(case when vh.election_year = 2020 and vh.election_code = '10866' and extract(year from vh.election_date) = 2020  then vd.county end) as county_2020,
+        max(case when vh.election_year = 2022 and vh.election_code = '26906' and extract(year from vh.election_date) = 2022  then vd.county end) as county_2022,
+        max(case when vh.election_year = 2024 and vh.election_code = 'GEN' and extract(year from vh.election_date) = 2024  then vd.county end) as county_2024,
         -- Aggregate vote method per election year
         max(case when vh.election_year = 2016 and vh.election_code = '10282' and extract(year from vh.election_date) = 2016 then vh.vote_history_code end) as vote_history_code_2016,
         max(case when vh.election_year = 2018 and vh.election_code = '10481' and extract(year from vh.election_date) = 2018  then vh.vote_history_code end) as vote_history_code_2018,
@@ -105,4 +105,4 @@ voter_continuity as (
     group by vd.voter_id
 )
 
-select * from voter_continuity
+select * from voter_continuity 
