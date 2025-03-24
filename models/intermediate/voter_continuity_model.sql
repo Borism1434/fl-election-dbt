@@ -105,4 +105,4 @@ voter_continuity as (
     group by vd.voter_id
 )
 
-select * from voter_continuity
+select * from voter_continuity 
