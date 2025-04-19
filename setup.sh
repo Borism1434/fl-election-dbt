@@ -15,7 +15,9 @@ fi
 echo "Installing DBT core and dbt-postgres..."
 source dbt_venv/bin/activate  # Activate here to keep it in the same shell session
 pip install --upgrade pip
-pip install dbt-core dbt-postgres
+# You can add any other packages you commonly use here:
+pip install dbt-core dbt-postgres pandas sqlalchemy psycopg2-binary jupyter ipython io zipfile requests
+
 
 # Step 3: Check if installation was successful
 echo "Verifying DBT installation..."
