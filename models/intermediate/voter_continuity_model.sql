@@ -1,6 +1,5 @@
  {{ config(materialized='table') }}
 
- 
 with voter_details as (
     select voter_id, reg_date, county, party, 2016 as election_year 
     from {{ source('voterfile', 'election_detail_2016') }}
