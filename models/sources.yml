@@ -16,3 +16,17 @@ sources:
       - name: election_history_2020
       - name: election_history_2022
       - name: election_history_2024
+  
+  - name: geo  # Logical name for your data source
+    database: fl_election  # Replace with your actual database name
+    schema: geo  # Replace if your tables are in a different schema
+    tables:
+      - name: voterfile_042025
+      - name: voterfile_122024
+      
+  - name: monthly_vf  # Logical name for your data source
+    database: fl_election  # Replace with your actual database name
+    schema: monthly_vf  # Replace if your tables are in a different schema
+    tables: 
+      - name: detail_042025
+      - name: history_042025
